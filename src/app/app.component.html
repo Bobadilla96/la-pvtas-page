@@ -1,0 +1,70 @@
+﻿<main class="brand-page" id="inicio">
+  <nav class="topbar" aria-label="Navegacion principal">
+    <a class="brand-link" href="#inicio">LA PVTA'$</a>
+    <div class="nav-links">
+      <a href="#disenos">Disenos</a>
+      <a href="#frascos">Frascos</a>
+      <a href="#campana">Campana</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-copy">
+      <img class="hero-logo" [src]="logoUrl" alt="Logo La PVTAS Eau de Parfum">
+      <p class="eyebrow">Eau de Parfum</p>
+      <h1>La PVTA'$</h1>
+      <p class="hero-text">Perfume de presencia nocturna con campaña urbana, frascos reales y sello dorado premium.</p>
+      <a class="hero-button" href="#disenos">Ver propuestas</a>
+    </div>
+
+    <div class="hero-stage" aria-label="Campana principal La PVTAS">
+      <img class="hero-poster hero-poster-main" [src]="campaignDesigns[0].src" [alt]="campaignDesigns[0].alt">
+      <img class="hero-poster hero-poster-back" [src]="campaignDesigns[3].src" [alt]="campaignDesigns[3].alt">
+      <div class="hero-bottle-line">
+        <img *ngFor="let bottle of bottles.slice(4, 10)" [src]="bottle.src" [alt]="bottle.alt">
+      </div>
+    </div>
+  </section>
+
+  <section class="designs" id="disenos">
+    <div class="section-heading">
+      <p class="eyebrow">Rutas visuales</p>
+      <h2>Seis disenos de campana</h2>
+    </div>
+
+    <div class="poster-grid">
+      <article class="poster-card" *ngFor="let design of campaignDesigns; let first = first" [class.poster-featured]="first">
+        <img [src]="design.src" [alt]="design.alt">
+        <div class="poster-meta">
+          <span>{{ design.number }}</span>
+          <h3>{{ design.name }}</h3>
+          <p>{{ design.tone }}</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="bottle-showcase" id="frascos">
+    <div class="section-heading">
+      <p class="eyebrow">Coleccion</p>
+      <h2>Frascos reales</h2>
+    </div>
+
+    <div class="bottle-rail">
+      <figure *ngFor="let bottle of bottles">
+        <img [src]="bottle.src" [alt]="bottle.alt">
+      </figure>
+    </div>
+  </section>
+
+  <section class="campaign" id="campana">
+    <div class="campaign-logo">
+      <img [src]="logoUrl" alt="Logo La PVTAS">
+    </div>
+    <div class="campaign-grid">
+      <img [src]="modelVectors[3].src" [alt]="modelVectors[3].alt">
+      <img [src]="modelVectors[5].src" [alt]="modelVectors[5].alt">
+      <img [src]="modelVectors[10].src" [alt]="modelVectors[10].alt">
+    </div>
+  </section>
+</main>
